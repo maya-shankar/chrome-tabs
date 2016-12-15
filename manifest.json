@@ -1,16 +1,16 @@
 {
-	"manifest_version": 2,
-
-	"name": "Python Chrome Plugin",
-	"description": "This extension runs Python code.",
-	"version": "1.0",
-
-	"browser_action": {
-		"default_icon": "img/icon.png",
-		"default_popup": "popup.html"
-	},
-	"permissions": [
-		"activeTab",
-		"https://ajax.googleapis.com/"
-	]
+  "name": "My Extension",
+  "version": "2.1",
+  "description": "Gets information from Google.",
+  "icons": { "128": "icon_128.png" },
+  "background": {
+    "persistent": false,
+    "scripts": ["bg.js"]
+  },
+  "permissions": ["http://*.google.com/", "https://*.google.com/"],
+  "browser_action": {
+    "default_title": "",
+    "default_icon": "icon_19.png",
+    "default_popup": "popup.html"
+  }
 }
