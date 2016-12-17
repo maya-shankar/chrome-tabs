@@ -1,16 +1,18 @@
 {
-  "name": "Print this page",
-  "description": "Adds a print button to the browser.",
+  "manifest_version": 2,
+
+  "name": "Shows Active Tabs",
+  "description": "Adds a browser action showing which tabs are acive in a given window.",
   "version": "1.1",
-  "background": {
-    "scripts": ["background.js"]
-  },
   "permissions": [
-    "tabs", "http://*/*", "https://*/*"
+    "tabs", "chrome://favicon/*"
   ],
-  "browser_action": {
-      "default_title": "Print this page",
-      "default_icon": "print_16x16.png"
+  "background": {
+    "page": "sortTabs.html"
   },
-  "manifest_version": 2
+  "browser_action": {
+      "default_title": "Show/Sort Tabs in this Window",
+      "default_icon": "tab_icon.png",
+      "default_popup": "sortTabs.html"
+  }
 }
