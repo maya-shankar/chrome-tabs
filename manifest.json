@@ -3,7 +3,7 @@
 
   "name": "Shows Active Tabs",
   "description": "Adds a browser action showing which tabs are acive in a given window.",
-  "version": "1.1",
+  "version": "1.0",
   "permissions": [
     "tabs", "chrome://favicon/*"
   ],
