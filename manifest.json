@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Sort Active Tabs",
-  "description": "Adds a browser action showing which tabs are acive in a given window.",
+  "description": "Adds a browser action showing which tabs are active in a given window.",
   "version": "1.0",
   "permissions": [
     "tabs", "chrome://favicon/*"
