@@ -15,7 +15,8 @@ function init() {
     		displayTabInfo(tabs[i].windowId, tabs[i], outputDiv);
     	}
       // move tabs in window
-      moveTabs(tabs);
+      if(active === true)
+        moveTabs(tabs);
     });
   });
 }
