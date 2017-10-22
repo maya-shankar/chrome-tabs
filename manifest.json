@@ -4,8 +4,9 @@
   "name": "Sort Active Tabs",
   "description": "Adds a browser action showing which tabs are active in a given window.",
   "version": "1.0",
+  "options_page": "options.html",
   "permissions": [
-    "tabs", "chrome://favicon/*"
+    "tabs", "chrome://favicon/*", "storage"
   ],
   "background": {
     "page": "sortTabs.html"
