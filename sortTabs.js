@@ -1,15 +1,22 @@
 // shows a list of running tabs in the window
 function init() {
-  chrome.tabs.query({currentWindow: true}, function(tabs) {
-    // sort tabs
-    tabs = sort(tabs);
-    // add sorted tabs to popup
-  	for (var i = 0; i < tabs.length; i++) {
-  		var outputDiv = document.getElementById("tabs");
-  		displayTabInfo(tabs[i].windowId, tabs[i], outputDiv);
-  	}
-    // move tabs in window
-    moveTabs(tabs);
+  chrome.storage.sync.get({
+    extensionActive: true,
+    alphaOrder: false
+  }, function(items) {
+    var active = items.extensionActive;
+    var reverse = items.alphaOrder;
+    chrome.tabs.query({currentWindow: true}, function(tabs) {
+      // sort tabs
+      tabs = sort(tabs, reverse);
+      // add sorted tabs to popup
+    	for (var i = 0; i < tabs.length; i++) {
+    		var outputDiv = document.getElementById("tabs");
+    		displayTabInfo(tabs[i].windowId, tabs[i], outputDiv);
+    	}
+      // move tabs in window
+      moveTabs(tabs);
+    });
   });
 }
 
@@ -42,11 +49,17 @@ function moveTabs(tabs) {
 }
 
 // sort tabs alphabetically
-function sort(tabs) {
+function sort(tabs, reverse) {
   return tabs.sort(function(a, b) {
-    if (a.url < b.url)
-      return -1;
-    return 1;
+    if (reverse === false) {
+      if (a.url < b.url)
+        return -1;
+      return 1;
+    } else {
+      if (a.url > b.url)
+        return -1;
+      return 1;
+    }
   });
 }
 
